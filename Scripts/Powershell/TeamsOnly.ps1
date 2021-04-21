@@ -1,10 +1,18 @@
-﻿Set-ExecutionPolicy -ExecutionPolicy Unrestricted
+﻿###############################################
+##Script to migrate to TeamsOnly coexistance.
+##By Jurre Terpstra
+###############################################
 
-##Script om TeamsOnly te configureren
+##Allow execution of Powershell scripts.
+Set-ExecutionPolicy -ExecutionPolicy Unrestricted
+
+##Install and Import MS Teams modules
 Install-Module MicrosoftTeams
 Import-Module MicrosoftTeams
 
+#Get credentials and set them in a variable
 $userCredential = Get-Credential
+#Use supplied credentials and connect to MS Teams
 Connect-MicrosoftTeams -Credential $userCredential
 
 ##Controle wat de applied policy is van de gebruikers (let op het zijn er veel, namelijk alle)
